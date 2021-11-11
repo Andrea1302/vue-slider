@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Ex carrousel</title>
+</head>
+<body>
+   <div id="app">
+    <div id="container">
+            <div class="item">
+                <img class="immagine" :src="slides[activeSlide].image" :alt="slides[activeSlide].title">
+
+                <div id="sezione_descrittiva">
+                    <h3>
+                        {{slides[activeSlide].title}}
+                    </h3>
+    
+                    <p>
+                        {{slides[activeSlide].text}}
+                    </p>
+                </div>
+            </div>
+         
+        <!-- </div> -->
+
+        <div class="which_one">
+            <div class="which_item" :class="i === activeSlide ? 'active' : ''" v-for="(slide, i ) in slides" :myKey="i">
+                <img  :src="slide.image" :alt="slide.title">
+            </div>
+        </div>
+
+    </div>
+
+    <div id="avanti_indietro">
+        <div class="next" @click="nextSlide">
+            <i class="fas fa-chevron-circle-right"></i>
+        </div>
+
+        <div class="back" @click="prevSlide">
+            <i class="fas fa-chevron-circle-left"></i>
+        </div>
+    </div>
+   </div>
+    
+
+   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
